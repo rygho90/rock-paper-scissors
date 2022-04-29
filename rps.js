@@ -3,8 +3,8 @@ function computerPlay() {
     return ['ROCK', 'PAPER', 'SCISSORS'][computerRoll]
 }
 
-function playRound() {
-    let playerChoice = prompt("Enter 'ROCK', 'PAPER', or 'SCISSORS':").toUpperCase()
+function playRound(playerChoice) {
+    playerChoice = playerChoice.toUpperCase()
     let computerChoice = computerPlay()
     let lossWording = `You lost the round. Computer's ${computerChoice} beat your ${playerChoice}.`
     let winWording = `You win the round! Your ${playerChoice} beat Computer's ${computerChoice}.` 
@@ -42,6 +42,7 @@ function playRound() {
     }
 }
 
+/* 5-Round Game
 function game() {
     playerScore = 0
     computerScore = 0
@@ -67,8 +68,17 @@ function game() {
     }
 }
 
+
 let playerScore = 0
 let computerScore = 0
 
 game()
+*/
 
+const buttons = document.querySelectorAll('.btn');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      playRound(e.target.id);
+    });
+  });
