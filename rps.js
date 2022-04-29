@@ -3,6 +3,22 @@ function computerPlay() {
     return ['ROCK', 'PAPER', 'SCISSORS'][computerRoll]
 }
 
+function checkWinner() {
+    if (playerScore == 5) {
+        playerDisplay.innerText = 'First to 5!'
+        computerDisplay.innerText = 'You win!'
+        playerScore = 0
+        computerScore = 0
+    }
+    if (computerScore == 5) {
+        playerDisplay.innerText = 'Computer is first to 5.'
+        computerDisplay.innerText = 'You lose!'
+        playerScore = 0
+        computerScore = 0
+    }
+}
+
+
 function playRound(playerChoice) {
     playerChoice = playerChoice.toUpperCase()
     let computerChoice = computerPlay()
@@ -18,10 +34,12 @@ function playRound(playerChoice) {
             roundResult.innerText = (lossWording)
             computerScore += 1;
             computerDisplay.innerText = `Computer: ${computerScore}`;
+            checkWinner();
         } else {
             roundResult.innerText = (winWording)
             playerScore += 1;
             playerDisplay.innerText = `Player: ${playerScore}`;
+            checkWinner();
         }
     }
     if (playerChoice == "PAPER") {
@@ -48,40 +66,10 @@ function playRound(playerChoice) {
     }
 }
 
-/* 5-Round Game
-function game() {
-    playerScore = 0
-    computerScore = 0
-    let roundResult = "";
-
-    for (let i=0; i < 5; i++) {
-        roundResult = playRound()
-        if (roundResult == "W") {
-            playerScore++
-        }
-        if (roundResult == "L") {
-            computerScore++
-        }
-    }
-
-    console.log(`\nPlayer: ${playerScore}. Computer: ${computerScore}.`)
-    if (playerScore == computerScore) {
-        console.log("You tied!")
-    } else if (playerScore > computerScore) {
-        console.log("You won the game!")
-    } else {
-        console.log("You lost the game!")
-    }
-}
-
-game()
-*/
-
 let playerScore = 0
 let computerScore = 0
 
 const buttons = document.querySelectorAll('.btn');
-
 const results = document.querySelector(`.results`);
 const roundResult = document.createElement('div');
 const playerDisplay = document.createElement('div');
@@ -98,5 +86,6 @@ buttons.forEach((button) => {
       playRound(e.target.id);
     });
   });
+
 
 
