@@ -10,34 +10,40 @@ function playRound(playerChoice) {
     let winWording = `You win the round! Your ${playerChoice} beat Computer's ${computerChoice}.` 
 
     if (playerChoice == computerChoice) {
-        console.log(`Tie. You and Computer both chose ${playerChoice}.`)
-        return "T"
+        roundResult.innerText = `Tie. You and Computer both chose ${playerChoice}.`;
+        return;
     } 
     if (playerChoice == "ROCK") {
         if (computerChoice == "PAPER") {
-            console.log(lossWording)
-            return "L"
+            roundResult.innerText = (lossWording)
+            computerScore += 1;
+            computerDisplay.innerText = `Computer: ${computerScore}`;
         } else {
-            console.log(winWording)
-            return "W"
+            roundResult.innerText = (winWording)
+            playerScore += 1;
+            playerDisplay.innerText = `Player: ${playerScore}`;
         }
     }
     if (playerChoice == "PAPER") {
         if (computerChoice == "SCISSORS") {
-            console.log(lossWording)
-            return "L"
+            roundResult.innerText = (lossWording)
+            computerScore += 1;
+            computerDisplay.innerText = `Computer: ${computerScore}`;
         } else {
-            console.log(winWording)
-            return "W"
+            roundResult.innerText = (winWording)
+            playerScore += 1;
+            playerDisplay.innerText = `Player: ${playerScore}`;
         }
     }
     if (playerChoice == "SCISSORS") {
         if (computerChoice == "ROCK") {
-            console.log(lossWording)
-            return "L"
+            roundResult.innerText = (lossWording)
+            computerScore += 1;
+            computerDisplay.innerText = `Computer: ${computerScore}`;
         } else {
-            console.log(winWording)
-            return "W"
+            roundResult.innerText = (winWording)
+            playerScore += 1;
+            playerDisplay.innerText = `Player: ${playerScore}`;
         }
     }
 }
@@ -68,17 +74,29 @@ function game() {
     }
 }
 
+game()
+*/
 
 let playerScore = 0
 let computerScore = 0
 
-game()
-*/
-
 const buttons = document.querySelectorAll('.btn');
+
+const results = document.querySelector(`.results`);
+const roundResult = document.createElement('div');
+const playerDisplay = document.createElement('div');
+const computerDisplay = document.createElement('div');
+roundResult.innerText = `\n`;
+playerDisplay.innerText = `Player: ${playerScore}`;
+computerDisplay.innerText = `Computer: ${computerScore}`;
+results.append(roundResult);
+results.append(playerDisplay);
+results.append(computerDisplay);
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
       playRound(e.target.id);
     });
   });
+
+
