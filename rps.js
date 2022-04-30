@@ -81,20 +81,6 @@ function playRound(playerChoice) {
 let playerScore = 0
 let computerScore = 0
 
-/*
-const buttons = document.querySelectorAll('.btn');
-const results = document.querySelector(`.results`);
-const roundResult = document.createElement('div');
-const playerDisplay = document.createElement('div');
-const computerDisplay = document.createElement('div');
-roundResult.innerText = `\n`;
-playerDisplay.innerText = `Player: ${playerScore}`;
-computerDisplay.innerText = `Computer: ${computerScore}`;
-results.append(roundResult);
-results.append(playerDisplay);
-results.append(computerDisplay);
-*/
-
 const buttons = document.querySelectorAll('.btn'); 
 const roundResult = document.querySelector('.round-result');
 const playerDisplay = document.querySelector('.player-display');
