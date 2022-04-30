@@ -31,3 +31,32 @@
     justify-content: space-between;
     align-items: center;
 }
+
+h2 {
+    text-align: center;
+}
+
+.score-display {
+    text-align: center;
+}
+
+.pick {
+    height: 100px;
+    width: 100px;
+    border: solid black 1px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choices {
+    margin: 10px auto 0;
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    height: 50px;
+    width: 100px;
+}
